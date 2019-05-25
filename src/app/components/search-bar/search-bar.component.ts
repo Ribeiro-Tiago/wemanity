@@ -16,7 +16,7 @@ export class SearchBarComponent {
 	}
 
 	onTextChange(value: string) {
-		if (value.length >= 3) {
+		if (value.length >= 3 || value.length === 0) {
 			this.emit();
 		}
 	}
@@ -26,8 +26,10 @@ export class SearchBarComponent {
 	}
 
 	emit() {
-		if (this.searchTerm.length >= 3) {
-			this.onSearch.emit(this.searchTerm);
+		const word = this.searchTerm.trim();
+
+		if (word.length >= 3 || word.length === 0) {
+			this.onSearch.emit(word);
 		}
 	}
 }

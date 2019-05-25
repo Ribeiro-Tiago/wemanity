@@ -24,6 +24,11 @@ export class HomeComponent {
 	}
 
 	onSearch(value: string) {
+		if (value === "") {
+			this.entries = [...this.allEntries];
+			return;
+		}
+
 		value = value.toLowerCase();
 
 		this.entries = this.allEntries.filter(({ firstName, lastName, phone }) => {
