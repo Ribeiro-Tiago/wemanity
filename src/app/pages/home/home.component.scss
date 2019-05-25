@@ -15,4 +15,36 @@ app-home {
 		font-size: 5vh;
 		font-weight: normal;
 	}
+
+	hr {
+		margin-top: 4vh;
+		margin-bottom: 2vh;
+	}
+
+	.search-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 80%;
+		margin: auto;
+
+		a {
+			border: 1px solid $secondaryColor;
+			padding: 1.5vh 2vh;
+			border-radius: 1vh;
+			outline: none;
+			font-size: 2vh;
+			background: transparent;
+			color: $secondaryColor;
+			cursor: pointer;
+			transition: .2s;
+
+			&:hover {
+				transition: .2s;
+				background: $secondaryColor;
+				color: $primaryColor;
+				border-color: $primaryColor;
+			}
+		}
+	}
 }

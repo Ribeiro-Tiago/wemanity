@@ -1,7 +1,12 @@
-<app-search-bar (onSearch)="onSearch($event)"></app-search-bar>
+<div class="search-wrapper">
+	<app-search-bar (onSearch)="onSearch($event)"></app-search-bar>
+	<a [routerLink]="['/create']">Add entry</a>
+</div>
 
-<div class="list-wrapper">
-	<h3 *ngIf="!entries.length">No entries found</h3>
+<hr />
+
+<div class=" list-wrapper">
+	<h2 *ngIf="!entries.length">No entries found</h2>
 
 	<app-list-item *ngFor="let entry of entries" [item]="entry"></app-list-item>
 </div>
