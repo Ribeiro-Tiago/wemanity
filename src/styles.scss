@@ -2,6 +2,7 @@
 @import '~angular-tree-component/dist/angular-tree-component.css';
 @import '~@angular/material/theming';
 @import '~dragula/dist/dragula.css';
+@import "./variables.scss";
 
 $custom-typography: mat-typography-config($font-family: 'Exo'
 );
@@ -9,7 +10,8 @@ $custom-typography: mat-typography-config($font-family: 'Exo'
 @include mat-core($custom-typography);
 
 body {
-	background-color: #f4f3f3;
+	background-color: $primaryColor;
+	color: #555;
 	margin: 0;
 
 	app-root * {
