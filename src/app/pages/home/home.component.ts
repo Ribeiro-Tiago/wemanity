@@ -12,15 +12,11 @@ export class HomeComponent {
 	entries: Entry[];
 
 	constructor() {
-		this.allEntries = [
-			{ id: 39021234567, phone: "+39 02 1234567", firstName: "Aasiyah", lastName: "Mckenna" },
-			{ id: 39221231327, phone: "+39 22 1231327", firstName: "Summer", lastName: "Rossi" },
-			{ id: 39028312892, phone: "+39 02 8312892", firstName: "Yosef", lastName: "Glass" },
-			{ id: 39354821902, phone: "+39 35 4821902", firstName: "Pearce", lastName: "Fuller" },
-			{ id: 39235108223, phone: "+39 23 5108223", firstName: "Sukhmani", lastName: "Cummings" },
-		].sort(this.orderAlphabetically);
+		const items = JSON.parse(localStorage.getItem("WT_entries"));
 
-		this.entries = [...this.allEntries];
+		this.allEntries = [...items];
+
+		this.entries = [...items];
 	}
 
 	onSearch(value: string) {
