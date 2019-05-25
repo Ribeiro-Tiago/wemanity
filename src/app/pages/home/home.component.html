@@ -1,1 +1,7 @@
 <app-search-bar (onSearch)="onSearch($event)"></app-search-bar>
+
+<div class="list-wrapper">
+	<h3 *ngIf="!entries.length">There are no entries</h3>
+
+	<app-list-item *ngFor="let entry of entries" [item]="entry"></app-list-item>
+</div>

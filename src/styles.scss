@@ -17,4 +17,12 @@ body {
 	app-root * {
 		font-family: 'Exo', sans-serif;
 	}
+
+	a,
+	a:hover,
+	a:active,
+	a:focus {
+		text-decoration: none;
+		color: #555;
+	}
 }

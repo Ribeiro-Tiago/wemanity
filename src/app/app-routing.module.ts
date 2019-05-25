@@ -5,6 +5,12 @@ import { HomeComponent } from "./pages/home/home.component";
 const routes: Routes = [{
 	path: "",
 	component: HomeComponent
+}, {
+	path: "edit/:id",
+	component: HomeComponent
+}, {
+	path: "create",
+	component: HomeComponent
 }];
 
 @NgModule({

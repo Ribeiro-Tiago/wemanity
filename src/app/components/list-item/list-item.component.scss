@@ -1,0 +1,38 @@
+app-list-item {
+	width: 30%;
+
+	.card {
+		background: #f7f7f7;
+		padding: 2vh;
+		margin: 2vh;
+		border-radius: 1vh;
+		height: 50px;
+		box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		transition: .2s;
+		cursor: pointer;
+		position: relative;
+		overflow: hidden;
+
+		&:hover {
+			transition: .2s;
+			transform: scale(1.03);
+
+			i {
+				transition: .2s;
+				transform: translateX(0);
+			}
+		}
+
+		i {
+			transition: .2s;
+			transform: translateX(100px);
+			position: absolute;
+			top: 5px;
+			right: 5px;
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+}
