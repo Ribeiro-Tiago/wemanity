@@ -4,13 +4,11 @@ import { NgModule } from "@angular/core";
 import { AppComponent } from "./app.component";
 
 import { AppRoutingModule } from "./app-routing.module";
-import { HomeModule } from "./components/home/home.module";
-import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { HomeModule } from "./pages/home/home.module";
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		SearchBarComponent,
 	],
 	imports: [
 		BrowserModule,
