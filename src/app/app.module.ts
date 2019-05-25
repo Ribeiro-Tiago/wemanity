@@ -4,8 +4,11 @@ import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
+
 import { HomeModule } from "./pages/home/home.module";
-import { EntryComponent } from './pages/entry/entry.component';
+import { EntryComponent } from "./pages/entry/entry.component";
+
+import { ApiService } from "./services/api/api.service";
 
 @NgModule({
 	declarations: [
@@ -16,7 +19,8 @@ import { EntryComponent } from './pages/entry/entry.component';
 		BrowserModule,
 		AppRoutingModule,
 		HomeModule,
-		FormsModule
+		FormsModule,
+		ApiService
 	],
 	providers: [],
 	bootstrap: [AppComponent]
