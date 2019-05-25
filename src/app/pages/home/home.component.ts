@@ -34,16 +34,4 @@ export class HomeComponent {
 			return (firstName.includes(value) || lastName.includes(value) || phone.includes(value));
 		});
 	}
-
-	private orderAlphabetically(a, b) {
-		if (a.firstName < b.firstName) {
-			return -1;
-		}
-
-		if (a.firstName > b.firstName) {
-			return 1;
-		}
-
-		return 0;
-	}
 }

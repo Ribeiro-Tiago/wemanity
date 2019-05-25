@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, onInit } from "@angular/core";
+import { Component, ViewEncapsulation, OnInit } from "@angular/core";
 
 @Component({
 	selector: "app-root",
@@ -7,8 +7,6 @@ import { Component, ViewEncapsulation, onInit } from "@angular/core";
 	encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
-	title = "ze";
-
 	ngOnInit() {
 		const items = [
 			{ id: 39021234567, phone: "+39 02 1234567", firstName: "Aasiyah", lastName: "Mckenna" },
@@ -19,5 +17,17 @@ export class AppComponent implements OnInit {
 		].sort(this.orderAlphabetically);
 
 		localStorage.setItem("WT_entries", JSON.stringify(items));
+	}
+
+	private orderAlphabetically(a, b) {
+		if (a.firstName < b.firstName) {
+			return -1;
+		}
+
+		if (a.firstName > b.firstName) {
+			return 1;
+		}
+
+		return 0;
 	}
 }

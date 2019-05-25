@@ -1,3 +1,27 @@
-<p>
-  entry works!
-</p>
+<div class="header">
+	<a [routerLink]="['../']">
+		<i class="fas fa-chevron-left fa-2x"></i>
+	</a>
+	<h2>{{ isNewUser ? "Create new user" : "Edit existing user" }}</h2>
+</div>
+<form>
+	<div class="input-group">
+		<label for="firstName">First name</label>
+		<input type="text" [(ngModel)]="firstName" name="firstName" placeholder="First name..." />
+		<span *ngIf="firstNameErr" class="err">Required field!</span>
+	</div>
+
+	<div class="input-group">
+		<label for="lastName">Last name</label>
+		<input type="text" [(ngModel)]="lastName" name="lastName" placeholder="Last name..." />
+		<span *ngIf="lastNameErr" class="err">Required field!</span>
+	</div>
+
+	<div class="input-group">
+		<label for="phone">Phone</label>
+		<input type="text" [(ngModel)]="phone" name="phone" placeholder="Phone number...." />
+		<span *ngIf="phoneErr" class="err">{{ phoneErrText }}</span>
+	</div>
+
+	<button type="submit" (click)="onSubmit($event)">Submit</button>
+</form>
