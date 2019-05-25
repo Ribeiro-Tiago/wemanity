@@ -1,5 +1,5 @@
 <div class="search-input">
-	<input type="text" [value]="searchTerm" placeholder="Type something..." (input)="onTextChange($event.target.value)"
-		(keydown.enter)="onEnterPress()" />
+	<input type="text" [(ngModel)]="searchTerm" placeholder="Type something..."
+		(input)="onTextChange($event.target.value)" (keydown.enter)="onEnterPress()" />
 	<i class=" fas fa-search" (click)="onChange()"></i>
 </div>
