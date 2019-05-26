@@ -12,7 +12,7 @@ import { ApiService } from "../../services/api/api.service";
 })
 export class EntryComponent implements OnInit {
 	private phoneRegex: RegExp;
-	private allEntries: Entry[];
+	allEntries: Entry[];
 	firstName: string;
 	lastName: string;
 	phone: string;
@@ -26,7 +26,7 @@ export class EntryComponent implements OnInit {
 	isLoading: boolean;
 	userID: string;
 
-	constructor(private router: ActivatedRoute, private api: ApiService) {
+	constructor(public router: ActivatedRoute, private api: ApiService) {
 		this.phoneRegex = /^[+][0-9]{2}[\s][0-9]{2}[\s][0-9]{6,}/;
 		this.firstName = "";
 		this.lastName = "";

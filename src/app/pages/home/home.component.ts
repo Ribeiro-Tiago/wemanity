@@ -8,11 +8,11 @@ import { Entry } from "../../types/Entry";
 	encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent {
-	private allEntries: Entry[];
+	allEntries: Entry[];
 	entries: Entry[];
 
 	constructor() {
-		const items = JSON.parse(localStorage.getItem("WT_entries"));
+		const items = JSON.parse(localStorage.getItem("WT_entries")) || [];
 
 		this.allEntries = [...items];
 
