@@ -6,6 +6,7 @@
 - wait for angular to finsih building, which you know by one of two ways
   - dist folder being created in the root folder
   - ``[ANGULAR]`` logs to appear on the terminal
+- visit ``http://localhost:port``, where the port is the one defined on your .env file (default is 3000)
 
 # MIT License
 
