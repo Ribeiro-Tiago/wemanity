@@ -1,5 +1,5 @@
 export interface Entry {
-    id: number;
+    id: string;
     phone: string;
     firstName: string;
     lastName: string;

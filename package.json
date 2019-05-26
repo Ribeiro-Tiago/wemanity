@@ -2,26 +2,10 @@
 	"name": "wemanity",
 	"description": "Technical test for https://wemanity.com",
 	"version": "1.0.0",
-	"license": "MIT",
-	"author": {
-		"email": "tiagoribeiro.1803@gmail.com",
-		"name": "Tiago Ribeiro",
-		"url": "https://www.linkedin.com/in/ribeiro-tiago"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Ribeiro-Tiago/wemanity"
-	},
-	"keywords": [
-		"angular",
-		"node",
-		"mongo",
-		"typescript"
-	],
 	"scripts": {
 		"ng": "ng",
 		"server": "sh node_modules/.bin/ts-node-dev server",
-		"start": "concurrently -c \"yellow.bold,green.bold\" -n \"SERVER,BUILD\" \"serve\" \"ng build --watch\"",
+		"start": "concurrently -c \"yellow.bold,green.bold\" -n \"ANGULAR,SERVER\" \"ng build --watch\" \"npm run server\"",
 		"build": "ng build --prod",
 		"test": "ng test",
 		"lint": "ng lint",
@@ -105,5 +89,21 @@
 		"ts-node-dev": "^1.0.0-pre.39",
 		"tslint": "~5.10.0",
 		"typescript": "~2.9.2"
-	}
+	},
+	"author": {
+		"email": "tiagoribeiro.1803@gmail.com",
+		"name": "Tiago Ribeiro",
+		"url": "https://www.linkedin.com/in/ribeiro-tiago"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Ribeiro-Tiago/wemanity"
+	},
+	"keywords": [
+		"angular",
+		"node",
+		"mongo",
+		"typescript"
+	],
+	"license": "MIT"
 }

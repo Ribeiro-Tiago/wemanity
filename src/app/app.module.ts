@@ -20,9 +20,8 @@ import { ApiService } from "./services/api/api.service";
 		AppRoutingModule,
 		HomeModule,
 		FormsModule,
-		ApiService
 	],
-	providers: [],
+	providers: [ApiService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

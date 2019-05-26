@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
-import { Entry } from "../../types/Entry";
 import { ActivatedRoute } from "@angular/router";
+
+import { Entry } from "../../types/Entry";
+import { ApiService } from "../../services/api/api.service";
 
 @Component({
 	selector: "app-entry",
@@ -20,8 +22,10 @@ export class EntryComponent implements OnInit {
 	lastNameErr: boolean;
 	phoneErr: boolean;
 	isNewUser: boolean;
+	isLoading: boolean;
+	userID: string;
 
-	constructor(private router: ActivatedRoute) {
+	constructor(private router: ActivatedRoute, private api: ApiService) {
 		this.phoneRegex = /^[+][0-9]{2}[\s][0-9]{2}[\s][0-9]{6,}/;
 		this.firstName = "";
 		this.lastName = "";
@@ -33,18 +37,19 @@ export class EntryComponent implements OnInit {
 		this.isNewUser = true;
 		this.allEntries = [];
 		this.currItemIdx = -1;
+		this.isLoading = false;
+		this.userID = "";
 	}
 
 	ngOnInit() {
 		this.allEntries = JSON.parse(localStorage.getItem("WT_entries"));
 
 		this.router.params.subscribe(({ id }) => {
-			id = Number(id);
-
 			if (id) {
 				const { firstName, lastName, phone } = this.allEntries.find((item: Entry, index: number) => {
 					if (item.id === id) {
 						this.currItemIdx = index;
+						this.userID = id;
 						return true;
 					}
 
@@ -62,6 +67,7 @@ export class EntryComponent implements OnInit {
 	onSubmit(ev: Event) {
 		ev.preventDefault();
 
+		this.isLoading = true;
 		this.firstNameErr = (!this.firstName);
 		this.lastNameErr = (!this.lastName);
 
@@ -78,24 +84,30 @@ export class EntryComponent implements OnInit {
 		}
 
 		if (this.phoneErr || this.firstNameErr || this.lastNameErr) {
+			this.isLoading = false;
 			return;
 		}
 
-		const newItem: Entry = {
+		const item: any = {
 			firstName: this.firstName,
 			lastName: this.lastName,
-			phone: this.phone,
-			id: 31232
+			phone: this.phone
 		};
 
+		let call: Promise<any>;
+
 		if (this.isNewUser) {
-			this.allEntries.push(newItem);
+			call = this.api.post("entry", item);
+			this.allEntries.push(item);
+			this.isNewUser = false;
 		} else {
-			this.allEntries[this.currItemIdx] = newItem;
+			call = this.api.put(`entry/${this.userID}`, item);
+			this.allEntries[this.currItemIdx] = item;
 		}
 
-		localStorage.setItem("WT_entries", JSON.stringify(this.allEntries));
-
-		console.log("created", this.allEntries);
+		call.then((result) => {
+			this.userID = result.id;
+			localStorage.setItem("WT_entries", JSON.stringify(this.allEntries))
+		});
 	}
 }
