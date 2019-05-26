@@ -12,7 +12,6 @@ export class AppComponent implements OnInit {
 
 	ngOnInit() {
 		this.api.get("entry").then((result) => {
-			console.log(result);
 			if (result) {
 				localStorage.setItem("WT_entries", JSON.stringify(result));
 			} else {

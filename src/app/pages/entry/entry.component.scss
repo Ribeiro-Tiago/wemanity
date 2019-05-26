@@ -75,4 +75,23 @@ app-entry {
 			}
 		}
 	}
+
+	.alert {
+		position: absolute;
+		padding: .75rem 1.25rem;
+		margin-bottom: 1rem;
+		border: 1px solid transparent;
+		border-radius: .25rem;
+		color: #155724;
+		background-color: #d4edda;
+		border-color: #c3e6cb;
+		width: 35%;
+		display: none;
+		transform: translateX(-50%);
+		left: 50%;
+
+		&.visible {
+			display: block;
+		}
+	}
 }

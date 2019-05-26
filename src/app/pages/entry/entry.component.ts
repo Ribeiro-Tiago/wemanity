@@ -22,6 +22,7 @@ export class EntryComponent implements OnInit {
 	lastNameErr: boolean;
 	phoneErr: boolean;
 	isNewUser: boolean;
+	showAlert: boolean;
 	isLoading: boolean;
 	userID: string;
 
@@ -38,6 +39,7 @@ export class EntryComponent implements OnInit {
 		this.allEntries = [];
 		this.currItemIdx = -1;
 		this.isLoading = false;
+		this.showAlert = false;
 		this.userID = "";
 	}
 
@@ -107,7 +109,12 @@ export class EntryComponent implements OnInit {
 
 		call.then((result) => {
 			this.userID = result.id;
-			localStorage.setItem("WT_entries", JSON.stringify(this.allEntries))
+			localStorage.setItem("WT_entries", JSON.stringify(this.allEntries));
+			this.isLoading = false;
+			this.showAlert = true;
+			setTimeout(() => {
+				this.showAlert = false;
+			}, 3000);
 		});
 	}
 }
